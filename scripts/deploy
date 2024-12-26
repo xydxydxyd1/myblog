@@ -22,5 +22,5 @@ docker build -f docker/deploy.dockerfile -t "$IMG_NAME:deploy" .
 #docker run --name "$CONTAINTER_NAME" "$IMG_NAME"
 docker remove "$CONTAINER_NAME" 2> /dev/null
 docker run -it -t \
-    -p 127.0.0.1:$HOST_PORT:4000 \
+    -p $HOST_PORT:4000 \
     --name "$CONTAINTER_NAME" "$IMG_NAME:deploy"
