@@ -8,3 +8,5 @@ My personal blog, used for learning and sharing what I learned
 * Write about directory permissions
     + Link with Hello World
 * Write about docker
+
+* Add comment function
