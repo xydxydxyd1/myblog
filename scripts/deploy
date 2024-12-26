@@ -25,7 +25,7 @@ docker build -f docker/deploy.dockerfile -t "$IMG_NAME:deploy" .
 #docker run --name "$CONTAINTER_NAME" "$IMG_NAME"
 docker container stop "$CONTAINER_NAME" 2> /dev/null
 docker remove "$CONTAINER_NAME" 2> /dev/null
-docker run -it \
+docker run -dit \
     -p 443:443 \
     --name "$CONTAINER_NAME" \
     "$IMG_NAME:deploy"
