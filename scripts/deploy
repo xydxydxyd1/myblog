@@ -15,12 +15,12 @@ fi
 
 export IMG_NAME='myblog'
 export CONTAINER_NAME="${IMG_NAME}_running"
-export HOST_PORT='4000'
 
-docker build -f docker/dev.dockerfile -t "$IMG_NAME:dev" .
 docker build -f docker/deploy.dockerfile -t "$IMG_NAME:deploy" .
 #docker run --name "$CONTAINTER_NAME" "$IMG_NAME"
+docker container stop "$CONTAINER_NAME" 2> /dev/null
 docker remove "$CONTAINER_NAME" 2> /dev/null
-docker run -it -t \
-    -p $HOST_PORT:4000 \
-    --name "$CONTAINTER_NAME" "$IMG_NAME:deploy"
+docker run -it \
+    -p 80:80 \
+    --name "$CONTAINER_NAME" \
+    "$IMG_NAME:deploy"
