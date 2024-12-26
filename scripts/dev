@@ -13,12 +13,13 @@ if [[ "$#" -ne 0 ]]; then
     exit 1
 fi
 
-export IMG_NAME=${IMG_NAME:-'myblog'}
-export CONTAINER_NAME=${CONTAINER_NAME:-"${IMG_NAME}_running"}
-export HOST_PORT=${HOST_PORT:-'4000'}
+export IMG_NAME='myblog'
+export CONTAINER_NAME="${IMG_NAME}_running"
+export HOST_PORT='4000'
 
-scripts/build
+docker remove "$CONTAINER_NAME" 2> /dev/null
+docker build -f docker/dev.dockerfile -t "$IMG_NAME:dev" .
 #docker run --name "$CONTAINTER_NAME" "$IMG_NAME"
 docker run -it -t \
     -p 127.0.0.1:$HOST_PORT:4000 \
-    --name "$CONTAINTER_NAME" "$IMG_NAME" npx hexo server
+    --name "$CONTAINTER_NAME" "$IMG_NAME:dev"
