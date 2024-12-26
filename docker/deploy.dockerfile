@@ -1,4 +1,6 @@
 FROM myblog:dev
 
-#CMD npx hexo deploy
-CMD bash
+WORKDIR /app/blog
+RUN npx hexo generate
+
+CMD npx hexo server -s
