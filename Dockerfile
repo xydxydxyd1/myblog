@@ -10,4 +10,4 @@ RUN npm install
 WORKDIR /app/blog
 RUN npm install
 
-CMD npx hexo server
+CMD npx hexo deploy
