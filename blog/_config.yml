@@ -108,8 +108,11 @@ theme_config:
       link: https://github.com/xydxydxyd1
     - icon: email
       link: mailto:yundi.eric.xu@gmail.com
-nav:
-  home: /
+  nav:
+    home: /
+    about: /about/
+    articles: /archives/
+    projects: https://github.com/xydxydxyd1
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
