@@ -25,6 +25,7 @@ share what I learned, and I hope that you can learn something new from here!
 # Contact me
 
 If you found out that I wrote something wrong or didn't cover something very
-interesting, feel free to shoot me an email at `yundi.eric.xu@gmail.com`. I
+interesting, feel free to shoot me an email at
+[yundi.eric.xu@gmail.com](mailto:yundi.eric.xu@gmail.com). I
 absolutely welcome any discussion regarding the things I wrote. Maybe we can
 learn even more things together!
