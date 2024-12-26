@@ -13,6 +13,11 @@ if [[ "$#" -ne 0 ]]; then
     exit 1
 fi
 
+if [[ $UID -ne 0 ]]; then
+    >&2 echo "Container needs to be run in root to copy SSL private key"
+    exit 1
+fi
+
 export IMG_NAME='myblog'
 export CONTAINER_NAME="${IMG_NAME}_running"
 
@@ -21,6 +26,6 @@ docker build -f docker/deploy.dockerfile -t "$IMG_NAME:deploy" .
 docker container stop "$CONTAINER_NAME" 2> /dev/null
 docker remove "$CONTAINER_NAME" 2> /dev/null
 docker run -it \
-    -p 80:80 \
+    -p 443:443 \
     --name "$CONTAINER_NAME" \
     "$IMG_NAME:deploy"
