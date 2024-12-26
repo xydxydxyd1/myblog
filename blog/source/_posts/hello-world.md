@@ -15,7 +15,16 @@ to file, to server, then to you.
 
 In class, I often share fun stuff related to class on the class forums, such as
 applications of something we just learned or the reasoning behind some design.
+Day before yesterday (Christmas Eve), I wanted to share what I learned about
+directory permissions in Unix with my operating system classmates, and I
+woefully realize that probably no one will read the class forum during break.
 
-``` bash
-$ hexo new "My New Post"
-```
+Thus, I decided to make a blog. It will be a vent for my desire to learn and
+share what I learned, and I hope that you can learn something new from here!
+
+# Contact me
+
+If you found out that I wrote something wrong or didn't cover something very
+interesting, feel free to shoot me an email at `yundi.eric.xu@gmail.com`. I
+absolutely welcome any discussion regarding the things I wrote. Maybe we can
+learn even more things together!
