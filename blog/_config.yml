@@ -3,17 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: Rice Fried Egg
+subtitle: "Share delicious knowledge and fun"
+description: "Eric's personal blog"
 keywords:
-author: John Doe
+    - Computer Science
+author: Eric Xu
 language: en
-timezone: ''
+timezone: 'America/Los_Angeles'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://ricefriedegg.com
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
