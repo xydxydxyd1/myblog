@@ -106,8 +106,8 @@ theme_config:
   social_links:
     - icon: github
       link: https://github.com/xydxydxyd1
-    - icon: email
-      link: mailto:yundi.eric.xu@gmail.com
+    - icon: linkedin
+      link: https://www.linkedin.com/in/yundi-xu-4057a6262/
   nav:
     home: /
     about: /about/
