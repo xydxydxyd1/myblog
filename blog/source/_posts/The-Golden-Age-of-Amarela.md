@@ -1,10 +1,12 @@
 ---
 title: The Golden Age of Amarela
 tags:
-- Worldbuilding
+  - Worldbuilding
 categories:
-- Creative Writing
+  - Creative Writing
+date: 2025-01-04 02:19:53
 ---
+
 
 Once upon a time, there was a great kingdom next to the ocean. Scholars flocked
 there for knowledge, merchants for wealth, and adventurers for glory.
