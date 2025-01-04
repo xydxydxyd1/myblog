@@ -1,10 +1,12 @@
 ---
 title: Postmortem - Schedule Builder Export
 tags:
-- Python
+  - Python
 categories:
-- Projects
+  - Projects
+date: 2025-01-04 04:12:34
 ---
+
 
 ## Quick Information
 
@@ -116,4 +118,6 @@ literally everything I needed in JSON format. That's convenient!
 The rest isn't of much interest. I first got a working prototype that just makes
 one event. I iterated from there, adding features from the list like recurring
 events, start/end date, and final exam times, each less important than the
-previous.
+previous. In the end, I am satisfied by the result.
+
+![](result.png)
