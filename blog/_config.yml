@@ -128,3 +128,5 @@ marked:
   breaks: false
   smartLists: true
   smartypants: false
+  prependRoot: true
+  postAsset: true
