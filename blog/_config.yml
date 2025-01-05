@@ -110,8 +110,10 @@ theme_config:
       link: https://www.linkedin.com/in/yundi-xu-4057a6262/
   nav:
     home: /
-    about: /about/
+    about: /2024/12/26/hello-world/
     articles: /archives/
+    tag: /tags/
+    category: /categories/
     projects: https://github.com/xydxydxyd1
 
 # Deployment
