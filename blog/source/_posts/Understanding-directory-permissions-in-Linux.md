@@ -1,11 +1,13 @@
 ---
 title: Understanding directory permissions in Linux
 tags:
-- Operating Systems
-- Linux
+  - Operating Systems
+  - Linux
 categories:
-- Learning
+  - Learning
+date: 2025-01-08 12:25:07
 ---
+
 
 *Note: This is a work in progress.*
 
