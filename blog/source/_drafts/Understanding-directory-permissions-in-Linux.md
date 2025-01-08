@@ -103,7 +103,7 @@ The *search* permission allows one to "access" files in the directory.
 Essentially, it allows one to not only read the name of the files but also their
 inodes. As such, reading `super/public.txt` without *search*, such as in the
 case of `cat super/public.txt`, fails because one can't read a file without
-accessing metadata like data region address. ([`man 2
+accessing metadata in the inode like data region address. ([`man 2
 chmod`](https://www.man7.org/linux/man-pages/man2/chmod.2.html))
 
 #### `ls -la` without search
@@ -122,6 +122,24 @@ total 0
 We can see that `ls` is trying to access the file for its metadata and got
 denied. We can only see the name of the file, provided by *read* on the
 directory.
+
+#### `cd` and some speculation
+
+An important access controlled by *search* is the ability to change the **current
+working directory (cwd)** to the directory in question via the `cd` command (or more
+fundamentally, the `chdir()` system call).
+
+`chdir()` returns access error when any of the directories on its path ---
+including the last directory --- is missing *search*. This implies that you
+cannot `cd` into a directory without *search* on that directory even if you have
+all permissions for all parent directories. ([`man 2
+chdir`](https://www.man7.org/linux/man-pages/man2/chdir.2.html)
+
+My speculation on the reasoning behind this design is that the cwd's goal is to
+make **path resolution** easier for the user, and because any path from a cwd
+without *search* will be rejected, a cwd without *search* is pointless. Path
+resolution is the act of resolving a pathname to a file. ([`man 7
+path_resolution`](https://www.man7.org/linux/man-pages/man7/path_resolution.7.html)
 
 ## Interesting cases
 
