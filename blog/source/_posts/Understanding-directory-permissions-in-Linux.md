@@ -9,16 +9,15 @@ date: 2025-01-08 12:25:07
 ---
 
 
-*Note: This is a work in progress.*
-
 ## Background
 
-*Prerequisites: ECS150 Operating Systems*
+*Prerequisite: Basic knowledge about file systems (ECS 150)*
 
-In ECS 150, we learned that directories in modern file systems are actually just
-files that have entries to other files. Directories in Linux is no exception.
-With these knowledge in mind, we can understand the somewhat unintuitive
-directory permissions.
+Modern file systems are actually just files that have entries to other files.
+Directories in Linux is no exception. With these knowledge in mind, we can
+understand the somewhat unintuitive directory permissions. This article aims to
+not only explain but also decipher the reasoning behind the read, write, and
+execute (actually search) permissions on Linux directories.
 
 ### Files
 
@@ -132,10 +131,9 @@ working directory (cwd)** to the directory in question via the `cd` command (or 
 fundamentally, the `chdir()` system call).
 
 `chdir()` returns access error when any of the directories on its path ---
-including the last directory --- is missing *search*. This implies that you
-cannot `cd` into a directory without *search* on that directory even if you have
-all permissions for all parent directories. ([`man 2
-chdir`](https://www.man7.org/linux/man-pages/man2/chdir.2.html)
+including the last directory --- is missing *search*. A corollary is that you
+cannot `cd` into a directory without *search* ([`man 2
+chdir`](https://www.man7.org/linux/man-pages/man2/chdir.2.html))
 
 My speculation on the reasoning behind this design is that the cwd's goal is to
 make **path resolution** easier for the user, and because any path from a cwd
@@ -146,7 +144,7 @@ resolution relevant to us is the access control: if any non-final component of
 the path doesn't have *search*, then an `EACCESS` error is returned. This makes
 sense: a non-final directory not having search means that its child component's
 inode cannot be accessed, rendering the path invalid.([`man 7
-path_resolution`](https://www.man7.org/linux/man-pages/man7/path_resolution.7.html)
+path_resolution`](https://www.man7.org/linux/man-pages/man7/path_resolution.7.html))
 
 One of the two types of path resolution, relative path resolution, begins at the
 cwd. As such, any relative path will have its cwd as a non-final component.
@@ -194,12 +192,14 @@ $ rm super/public.txt
 rm: cannot remove 'super/public.txt': Permission denied
 ```
 
+## Conclusion
+
+With this article, I hope that Linux directory permissions that seemed arbitrary
+now makes more sense (especially *search*). I encourage you to experiment
+yourself to get a better understanding than reading. Hope you have a nice day!
+
 ## Resources
 
 * [GNU documentation](https://www.gnu.org/software/coreutils/manual/html_node/Mode-Structure.html)
 * [Redhat blog](https://www.redhat.com/en/blog/linux-file-permissions-explained)
 
-## Expansion
-
-1. More permission bits like sticky
-2. More fun case studies
