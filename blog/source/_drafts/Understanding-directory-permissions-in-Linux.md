@@ -137,9 +137,19 @@ chdir`](https://www.man7.org/linux/man-pages/man2/chdir.2.html)
 
 My speculation on the reasoning behind this design is that the cwd's goal is to
 make **path resolution** easier for the user, and because any path from a cwd
-without *search* will be rejected, a cwd without *search* is pointless. Path
-resolution is the act of resolving a pathname to a file. ([`man 7
+without *search* will be rejected, a cwd without *search* is pointless.
+
+Path resolution is the act of resolving a pathname to a file. The aspect of path
+resolution relevant to us is the access control: if any non-final component of
+the path doesn't have *search*, then an `EACCESS` error is returned. This makes
+sense: a non-final directory not having search means that its child component's
+inode cannot be accessed, rendering the path invalid.([`man 7
 path_resolution`](https://www.man7.org/linux/man-pages/man7/path_resolution.7.html)
+
+One of the two types of path resolution, relative path resolution, begins at the
+cwd. As such, any relative path will have its cwd as a non-final component.
+Given this, if the cwd does not have *search*, then any relative path will be
+invalid. As such, it makes sense to not allow cwd to be without *search*.
 
 ## Interesting cases
 
